@@ -24,6 +24,7 @@ class Bank{
   else
    return 0;
   }
+//hello
  void display(){
    System.out.println("name is "+name+" balance is"+bal);
   }
