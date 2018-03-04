@@ -3,8 +3,8 @@ abstract class Staff{
   protected int code;
   protected String name;
   Staff(int code,String name){
-   this.code=code;
-   this.name=name;
+   code=this.code;
+   name=this.name;
   }
   abstract void display();
   }
@@ -13,8 +13,8 @@ class Teacher extends Staff{
 
   Teacher(int code,String name,String subject,String publication){
    super(code,name);
-   this.subject=subject;
-   this.publication=publication;
+   subject=this.subject;
+   publication=this.publication;
    }
   void display(){
    System.out.println("code of a teacher is "+code+" name is "+name+" subject is "+subject+" publication is "+publication);
@@ -24,7 +24,7 @@ class Typist extends Staff{
   double speed;
   Typist(int code,String name,double speed){
    super(code,name);
-   this.speed=speed;
+   speed=this.speed;
    }
   void display(){
    System.out.println("typist code is "+code+" name is "+name+" speed is "+speed);
@@ -34,8 +34,8 @@ class Officer extends Staff{
   String grade;
   Officer(int code,String name,String grade){
    super(code,name);
-   this.name=name;
-   this.grade=grade;
+    name=this.name;
+    grade=this.grade;
    }
  void display(){
   System.out.println("officer's name is "+name+" code is"+code+" grade is "+grade);
@@ -53,7 +53,7 @@ class Casual extends Typist{
   int wages;
   Casual(int code,String name,double speed,int wages){
    super(code,name,speed);
-   this.wages=wages;
+    wages=this.wages;
    }
   void display(){
    System.out.println("code for casual typist is"+code+" name is "+name+ "speed is "+speed+" wages is "+wages);
