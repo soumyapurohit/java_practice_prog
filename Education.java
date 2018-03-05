@@ -3,8 +3,8 @@ abstract class Staff{
   protected int code;
   protected String name;
   Staff(int code,String name){
-   code=this.code;
-   name=this.name;
+   this.code=code;
+   this.name=name;
   }
   abstract void display();
   }
@@ -13,32 +13,32 @@ class Teacher extends Staff{
 
   Teacher(int code,String name,String subject,String publication){
    super(code,name);
-   subject=this.subject;
-   publication=this.publication;
+   this.subject=subject;
+   this.publication=publication;
    }
   void display(){
-   System.out.println("code of a teacher is "+code+" name is "+name+" subject is "+subject+" publication is "+publication);
+   System.out.println("code of a teacher is " +code+" name is "+name+" subject is " +subject+" publication is "   +publication);
    }
   }
 class Typist extends Staff{
   double speed;
   Typist(int code,String name,double speed){
    super(code,name);
-   speed=this.speed;
+   this.speed=speed;
    }
   void display(){
-   System.out.println("typist code is "+code+" name is "+name+" speed is "+speed);
+   System.out.println("typist code is " +code+" name is " +name+" speed is " +speed);
   }
 }
 class Officer extends Staff{
   String grade;
   Officer(int code,String name,String grade){
    super(code,name);
-    name=this.name;
-    grade=this.grade;
+    this.name=name;
+    this.grade=grade;
    }
  void display(){
-  System.out.println("officer's name is "+name+" code is"+code+" grade is "+grade);
+  System.out.println("officer's name is " +name+" code is" +code+" grade is " +grade);
   }
  }
 class Regular extends Typist{
@@ -46,17 +46,17 @@ class Regular extends Typist{
    super(code,name,speed);
    }
    void display(){
-    System.out.println("regular typist code is "+code+"name is "+name+" speed is "+speed);
+    System.out.println("regular typist code is " +code+"name is " +name+" speed is "  +speed);
     }
 }
 class Casual extends Typist{
   int wages;
   Casual(int code,String name,double speed,int wages){
    super(code,name,speed);
-    wages=this.wages;
+    this.wages=wages;
    }
   void display(){
-   System.out.println("code for casual typist is"+code+" name is "+name+ "speed is "+speed+" wages is "+wages);
+   System.out.println("code for casual typist is"+code+" name is " +name+ "speed is " +speed+" wages is " +wages);
   }
 }
 public class Education{
@@ -68,19 +68,22 @@ public class Education{
    System.out.println("enter choice for teacher,typist,officer");
    ch=scan.next();
    switch(ch){
-    case "teacher": System.out.println("enter the code,name,subject and publication");
+   case "teacher": System.out.println("enter the code,name,subject and publication");
                     code=scan.nextInt();
+                    scan.nextLine();
                     name=scan.next();
                     subject=scan.next();
-                    publication=scan.nextLine();
+                    publication=scan.next();
                     Teacher te=new Teacher(code,name,subject,publication);
                     te.display();
                     break;
+                   
    case "typist": System.out.println("enter 1 for regular typist and 2 for casual");
                   type=scan.nextInt();
                   if(type==1){
                    System.out.println("enter the code,name,speed for typist");
                    code=scan.nextInt();
+                   scan.nextLine();
                    name=scan.nextLine();
                    speed=scan.nextDouble();
                    Regular r=new Regular(code,name,speed);
@@ -89,7 +92,8 @@ public class Education{
                   else if(type==2){
                    System.out.println("enter the code,name,speed,daily wage for typist");
                    code=scan.nextInt();
-                   name=scan.nextLine();
+                   scan.nextLine();
+                   name=scan.next();
                    speed=scan.nextDouble();
                    wages=scan.nextInt();
                    Casual c=new Casual(code,name,speed,wages);
@@ -98,6 +102,7 @@ public class Education{
                    break;
   case "officer":System.out.println("enter the code,name,grade of officer(a,b,c,d,e)");
                  code=scan.nextInt();
+                 scan.nextLine();
                  name=scan.nextLine();
                  grade=scan.next();
                  Officer o=new Officer(code,name,grade);
